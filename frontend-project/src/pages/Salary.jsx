@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { salaryService, employeeService } from '../services/api';
+
 
 const Salary = () => {
   const [salaries, setSalaries] = useState([]);
@@ -90,10 +92,11 @@ const Salary = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Salary Management</h1>
+      <div className="container mx-auto px-4 pt-4 pb-8">
+
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-800">Salary Management</h1>
         
         {message && (
           <div className={`p-4 rounded mb-4 ${message.includes('success') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -213,8 +216,13 @@ const Salary = () => {
           </div>
         </div>
       </div>
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 };
 
+
 export default Salary;
+

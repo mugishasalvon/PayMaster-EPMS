@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { employeeService, departmentService } from '../services/api';
+
 
 const Employee = () => {
   const [employees, setEmployees] = useState([]);
@@ -51,10 +53,11 @@ const Employee = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Employee Management</h1>
+
+      <div className="container mx-auto px-4 pt-4 pb-8">
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-800">Employee Management</h1>
         
         {message && (
           <div className={`p-4 rounded mb-4 ${message.includes('success') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
@@ -177,8 +180,15 @@ const Employee = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <div className="mt-auto">
+        {/* eslint-disable-next-line import/no-unresolved */}
+        <Footer />
+      </div>
     </div>
   );
 };
+
 
 export default Employee;

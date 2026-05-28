@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { reportService } from '../services/api';
+
 
 const Reports = () => {
   const [reportType, setReportType] = useState('daily');
@@ -54,10 +56,11 @@ const Reports = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       <Navbar />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Reports</h1>
+      <div className="container mx-auto px-4 pt-4 pb-8">
+
+        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-800">Reports</h1>
 
         <div className="bg-white p-6 rounded-lg shadow-md mb-8">
           <h2 className="text-xl font-semibold mb-4">Generate Report</h2>
@@ -241,8 +244,13 @@ const Reports = () => {
           </div>
         )}
       </div>
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </div>
   );
 };
 
+
 export default Reports;
+
